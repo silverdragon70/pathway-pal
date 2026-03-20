@@ -3,8 +3,20 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import HomePage from "./pages/HomePage";
+import SubjectsPage from "./pages/SubjectsPage";
+import BooksPage from "./pages/BooksPage";
+import ChapterPage from "./pages/ChapterPage";
+import LibraryPage from "./pages/LibraryPage";
+import SearchPage from "./pages/SearchPage";
+import MCQPage from "./pages/MCQPage";
+import FlashcardsPage from "./pages/FlashcardsPage";
+import ExamSetupPage from "./pages/ExamSetupPage";
+import SchedulePage from "./pages/SchedulePage";
+import ProfilePage from "./pages/ProfilePage";
+import SettingsPage from "./pages/SettingsPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -15,8 +27,19 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/subjects" element={<SubjectsPage />} />
+          <Route path="/books" element={<BooksPage />} />
+          <Route path="/books/:bookId" element={<ChapterPage />} />
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/mcq" element={<MCQPage />} />
+          <Route path="/flashcards" element={<FlashcardsPage />} />
+          <Route path="/exam-setup" element={<ExamSetupPage />} />
+          <Route path="/schedule" element={<SchedulePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
