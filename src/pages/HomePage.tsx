@@ -126,15 +126,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* My Subjects */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "320ms" }}>
-        <SectionHeader title="My Subjects" action={{ label: "See All", onClick: () => navigate("/subjects") }} />
-        <div className="px-5 flex flex-col gap-3">
-          {topSubjects.map((s) => (
-            <SubjectCard key={s.id} icon={s.icon} name={s.name} questionCount={s.questionCount} progress={s.progress} onClick={() => navigate("/mcq")} />
-          ))}
-        </div>
-      </div>
 
       {/* Quick Actions */}
       <div className="mb-8 animate-fade-up" style={{ animationDelay: "360ms" }}>
