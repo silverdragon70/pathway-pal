@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { mockBooks } from "@/data/mockData";
-import { ArrowLeft, Star, CheckCircle2, Circle, BookOpen, HelpCircle, BarChart3 } from "lucide-react";
+import { ArrowLeft, BookOpen, HelpCircle, BarChart3, ChevronRight } from "lucide-react";
 
 const ChapterPage = () => {
   const navigate = useNavigate();
