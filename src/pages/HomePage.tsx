@@ -98,26 +98,6 @@ const HomePage = () => {
         </div>
       )}
 
-      {/* Pearl of the Day */}
-      <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "240ms" }}>
-        <div className="p-4 rounded-2xl bg-warning/5 border border-warning/10">
-          <div className="flex items-center gap-2 mb-2">
-            <Lightbulb className="w-4 h-4 text-warning" />
-            <span className="text-xs font-semibold uppercase tracking-widest text-warning">{mockPearlOfDay.title}</span>
-          </div>
-          <p className="text-sm text-foreground/80 leading-relaxed">{mockPearlOfDay.content}</p>
-          <span className="inline-block mt-2 text-[10px] px-2 py-0.5 bg-warning/10 text-warning rounded-full font-medium">{mockPearlOfDay.subject}</span>
-        </div>
-      </div>
-
-      {/* Stats */}
-      <div className="px-5 mb-8 animate-fade-up" style={{ animationDelay: "280ms" }}>
-        <div className="flex gap-3">
-          <StatCard icon={<Target className="w-5 h-5" />} value={`${mockUser.correctRate}%`} label="Accuracy" />
-          <StatCard icon={<ClipboardList className="w-5 h-5" />} value={mockUser.totalQuestions} label="Questions" />
-          <StatCard icon={<Clock className="w-5 h-5" />} value={`${mockUser.studyHours}h`} label="Study Time" />
-        </div>
-      </div>
 
 
       {/* Quick Actions */}
