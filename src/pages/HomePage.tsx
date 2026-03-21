@@ -35,10 +35,6 @@ const HomePage = () => {
             <Flame className="w-4 h-4 text-warning" />
             <span className="text-xs font-semibold text-warning">{mockUser.streak} day streak</span>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 rounded-full">
-            <Trophy className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary">{mockUser.points} pts</span>
-          </div>
         </div>
       </div>
 
