@@ -29,13 +29,6 @@ const HomePage = () => {
           </button>
         </div>
 
-        {/* Streak */}
-        <div className="mt-4 flex items-center gap-2 animate-fade-up" style={{ animationDelay: "80ms" }}>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-warning/10 rounded-full">
-            <Flame className="w-4 h-4 text-warning" />
-            <span className="text-xs font-semibold text-warning">{mockUser.streak} day streak</span>
-          </div>
-        </div>
       </div>
 
       {/* Continue Learning */}
