@@ -14,7 +14,7 @@ import FlashcardsPage from "./pages/FlashcardsPage";
 import ExamSetupPage from "./pages/ExamSetupPage";
 import SchedulePage from "./pages/SchedulePage";
 import ProfilePage from "./pages/ProfilePage";
-import SettingsPage from "./pages/SettingsPage";
+
 import NotificationsPage from "./pages/NotificationsPage";
 import NotFound from "./pages/NotFound";
 
