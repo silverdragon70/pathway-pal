@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { mockBooks } from "@/data/mockData";
-import { Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const BooksPage = () => {
   const navigate = useNavigate();
