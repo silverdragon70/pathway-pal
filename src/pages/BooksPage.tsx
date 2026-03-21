@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { mockBooks } from "@/data/mockData";
-import { Star } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const BooksPage = () => {
   const navigate = useNavigate();
@@ -23,33 +23,23 @@ const BooksPage = () => {
             <button
               key={b.id}
               onClick={() => navigate(`/books/${b.id}`)}
-              className="w-full flex gap-4 p-4 rounded-2xl bg-card card-shadow transition-all duration-150 ease-in-out active:scale-[0.98] active:neumorphic-active text-left animate-fade-up"
+              className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card card-shadow transition-all duration-150 ease-in-out active:scale-[0.98] active:neumorphic-active text-left animate-fade-up"
               style={{ animationDelay: `${140 + i * 60}ms` }}
             >
-              <div className="w-14 h-18 rounded-xl bg-secondary flex items-center justify-center text-3xl shrink-0">
-                {b.cover}
-              </div>
+              <span className="text-2xl w-10 h-10 flex items-center justify-center">{b.cover}</span>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-card-foreground leading-tight">{b.title}</p>
-                <p className="text-xs text-muted-foreground mt-1">{b.author} · {b.edition}</p>
-                <div className="flex items-center gap-1 mt-1">
-                  {Array.from({ length: 5 }).map((_, si) => (
-                    <Star
-                      key={si}
-                      className={`w-3 h-3 ${si < Math.floor(b.rating) ? "fill-warning text-warning" : "text-muted-foreground/30"}`}
-                    />
-                  ))}
-                  <span className="text-[10px] text-muted-foreground ml-1">{b.rating}</span>
+                <p className="font-medium text-sm text-card-foreground">{b.title}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{b.chapterList.length} chapters · {b.chapterList.reduce((a, c) => a + c.questions, 0)} questions</p>
+                <div className="mt-2 h-1.5 bg-secondary rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-primary rounded-full transition-all duration-500"
+                    style={{ width: `${b.progress}%` }}
+                  />
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">{b.chapterList.length} chapters · {b.chapterList.reduce((a, c) => a + c.questions, 0)} questions</p>
-                {b.progress > 0 && (
-                  <div className="mt-2 flex items-center gap-2">
-                    <div className="flex-1 h-1.5 bg-secondary rounded-full overflow-hidden">
-                      <div className="h-full bg-success rounded-full" style={{ width: `${b.progress}%` }} />
-                    </div>
-                    <span className="text-[10px] font-medium text-success">{b.progress}%</span>
-                  </div>
-                )}
+              </div>
+              <div className="flex flex-col items-end gap-1 shrink-0">
+                <span className="text-xs font-semibold text-primary">{b.progress}%</span>
+                <ChevronRight className="w-4 h-4 opacity-30" />
               </div>
             </button>
           ))}
