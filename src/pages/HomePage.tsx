@@ -22,7 +22,7 @@ const HomePage = () => {
             <h1 className="text-2xl font-bold mt-0.5">{mockUser.name} 👋</h1>
           </div>
           <button
-            onClick={() => navigate("/settings")}
+            onClick={() => navigate("/profile")}
             className="w-10 h-10 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-transform"
           >
             <Settings className="w-5 h-5 text-muted-foreground" />
