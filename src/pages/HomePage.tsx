@@ -35,10 +35,6 @@ const HomePage = () => {
             <Flame className="w-4 h-4 text-warning" />
             <span className="text-xs font-semibold text-warning">{mockUser.streak} day streak</span>
           </div>
-          <div className="flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 rounded-full">
-            <Trophy className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-primary">{mockUser.points} pts</span>
-          </div>
         </div>
       </div>
 
@@ -130,15 +126,6 @@ const HomePage = () => {
         </div>
       </div>
 
-      {/* My Subjects */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "320ms" }}>
-        <SectionHeader title="My Subjects" action={{ label: "See All", onClick: () => navigate("/subjects") }} />
-        <div className="px-5 flex flex-col gap-3">
-          {topSubjects.map((s) => (
-            <SubjectCard key={s.id} icon={s.icon} name={s.name} questionCount={s.questionCount} progress={s.progress} onClick={() => navigate("/mcq")} />
-          ))}
-        </div>
-      </div>
 
       {/* Quick Actions */}
       <div className="mb-8 animate-fade-up" style={{ animationDelay: "360ms" }}>
