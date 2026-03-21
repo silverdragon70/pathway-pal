@@ -31,14 +31,6 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      {/* Stats */}
-      <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "80ms" }}>
-        <div className="flex gap-3">
-          <StatCard icon={<TrendingUp className="w-5 h-5" />} value={`${mockUser.correctRate}%`} label="Progress" />
-          <StatCard icon={<BookOpen className="w-5 h-5" />} value={mockUser.points} label="Score" />
-          <StatCard icon={<Award className="w-5 h-5" />} value={mockUser.totalQuestions} label="Saved" />
-        </div>
-      </div>
 
       {/* Account */}
       <div className="mb-6 animate-fade-up" style={{ animationDelay: "140ms" }}>
