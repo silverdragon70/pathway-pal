@@ -6,7 +6,7 @@ import { ActionCard } from "@/components/cards/ActionCard";
 import { mockBookmarks, mockHistory } from "@/data/mockData";
 import { Bookmark, Clock, Star, TrendingUp, Brain, ClipboardList, HelpCircle, Layers } from "lucide-react";
 
-const collectionTabs = ["Bookmarks", "Notes", "Progress", "History"] as const;
+const collectionTabs = ["Bookmarks", "Progress", "History"] as const;
 
 const LibraryPage = () => {
   const navigate = useNavigate();
@@ -53,15 +53,6 @@ const LibraryPage = () => {
           </div>
         )}
 
-        {activeTab === "Notes" && (
-          <div className="px-5 animate-fade-up" style={{ animationDelay: "120ms" }}>
-            <div className="flex flex-col items-center justify-center py-16 text-center">
-              <Star className="w-12 h-12 text-muted-foreground/30 mb-3" />
-              <p className="text-sm font-medium text-card-foreground">No notes yet</p>
-              <p className="text-xs text-muted-foreground mt-1">Start adding notes during your study sessions</p>
-            </div>
-          </div>
-        )}
 
         {activeTab === "Progress" && (
           <div className="px-5 animate-fade-up" style={{ animationDelay: "120ms" }}>
