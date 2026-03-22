@@ -6,7 +6,7 @@ import { ActionCard } from "@/components/cards/ActionCard";
 import { mockBookmarks, mockHistory } from "@/data/mockData";
 import { Bookmark, Clock, Star, TrendingUp, Brain, ClipboardList, HelpCircle, Layers } from "lucide-react";
 
-const collectionTabs = ["Bookmarks", "Notes", "Progress", "History"] as const;
+const collectionTabs = ["Bookmarks", "Progress", "History"] as const;
 
 const LibraryPage = () => {
   const navigate = useNavigate();
