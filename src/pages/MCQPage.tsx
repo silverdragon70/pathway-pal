@@ -218,12 +218,17 @@ const MCQPage = () => {
             <span className="text-sm font-semibold text-card-foreground">{currentIndex + 1}<span className="text-muted-foreground font-normal">/{mockQuestions.length}</span></span>
           </div>
 
+          {/* Hint button: auto-solves the question by selecting the correct answer and showing explanation */}
           {mode === "study" && selectedOption === null && (
             <button
-              onClick={() => setShowHint(!showHint)}
+              onClick={() => {
+                // Auto-solve: selects the correct answer and reveals explanation
+                setSelectedOption(question.correctIndex);
+                setShowExplanation(true);
+              }}
               className="w-11 h-11 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-all"
             >
-              <Lightbulb className={`w-5 h-5 ${showHint ? "text-warning" : "text-foreground"}`} />
+              <Lightbulb className="w-5 h-5 text-foreground" />
             </button>
           )}
           {(mode !== "study" || selectedOption !== null) && (
