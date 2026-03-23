@@ -20,7 +20,7 @@ const SubjectsPage = () => {
         <SectionHeader title="All Subjects" />
         <div className="px-5 flex flex-col gap-3">
           {mockSubjects.map((s, i) => (
-            <div key={s.id} className="animate-fade-up" style={{ animationDelay: `${140 + i * 60}ms` }}>
+            <div key={s.id}>
               <SubjectCard icon={s.icon} name={s.name} questionCount={s.questionCount} progress={s.progress} onClick={() => navigate("/mcq")} />
             </div>
           ))}

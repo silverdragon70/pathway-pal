@@ -33,7 +33,7 @@ const SchedulePage = () => {
       </div>
 
       {/* Weeks */}
-      <div className="animate-fade-up">
+      <div>
         <SectionHeader title="Weekly Plan" />
         <div className="px-5 flex flex-col gap-3 mb-8">
           {mockSchedule.weeks.map((w, i) => {
