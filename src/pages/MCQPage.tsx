@@ -105,7 +105,7 @@ const MCQPage = () => {
 
       {/* Question */}
       <div className="flex-1 px-5 overflow-y-auto pb-32">
-        <div className="mb-4 animate-fade-up">
+        <div className="mb-4">
           <div className="flex gap-2 mb-3">
             {question.tags.map((tag) => (
               <span key={tag} className="text-[10px] px-2 py-0.5 bg-secondary text-muted-foreground rounded-full">{tag}</span>
@@ -163,7 +163,7 @@ const MCQPage = () => {
                 </button>
               </div>
             ) : (
-              <div className="p-4 rounded-2xl bg-success/5 border border-success/20 animate-fade-up">
+              <div className="p-4 rounded-2xl bg-success/5 border border-success/20">
                 <p className="text-sm font-semibold text-success mb-1">Answer</p>
                 <p className="text-sm font-medium text-card-foreground mb-2">{question.options[question.correctIndex]}</p>
                 <p className="text-sm text-foreground/80 leading-relaxed">{question.explanation}</p>
@@ -174,7 +174,7 @@ const MCQPage = () => {
 
         {/* Explanation (study mode) */}
         {mode === "study" && showExplanation && (
-          <div className={`p-4 rounded-2xl animate-fade-up ${isCorrect ? "bg-success/5 border border-success/20" : "bg-destructive/5 border border-destructive/20"}`}>
+          <div className={`p-4 rounded-2xl ${isCorrect ? "bg-success/5 border border-success/20" : "bg-destructive/5 border border-destructive/20"}`}>
             <div className="flex items-center gap-2 mb-2">
               {isCorrect ? <CheckCircle2 className="w-5 h-5 text-success" /> : <XCircle className="w-5 h-5 text-destructive" />}
               <span className={`text-sm font-semibold ${isCorrect ? "text-success" : "text-destructive"}`}>
@@ -187,7 +187,7 @@ const MCQPage = () => {
 
         {/* Hint */}
         {showHint && mode === "study" && selectedOption === null && (
-          <div className="p-3 rounded-2xl bg-warning/5 border border-warning/10 animate-fade-up mt-4">
+          <div className="p-3 rounded-2xl bg-warning/5 border border-warning/10 mt-4">
             <div className="flex items-center gap-2 mb-1">
               <Lightbulb className="w-4 h-4 text-warning" />
               <span className="text-xs font-semibold text-warning">Hint</span>

@@ -16,7 +16,7 @@ const HomePage = () => {
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
         {/* Greeting + Settings */}
-        <div className="flex items-start justify-between animate-fade-up" style={{ animationDelay: "0ms" }}>
+        <div className="flex items-start justify-between">
           <div>
             <p className="text-sm text-muted-foreground">{getTimeGreeting()},</p>
             <h1 className="text-2xl font-bold mt-0.5">{mockUser.name} 👋</h1>
@@ -32,7 +32,7 @@ const HomePage = () => {
       </div>
 
       {/* Continue Learning */}
-      <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "120ms" }}>
+      <div className="px-5 mb-6">
         <ActionCard
           variant="primary"
           icon={<Play className="w-5 h-5" />}
@@ -50,7 +50,7 @@ const HomePage = () => {
       </div>
 
       {/* Recent Chapters */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "160ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Recently Opened" />
         <div className="px-5 flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
           {mockRecentChapters.map((ch) => (
@@ -75,7 +75,7 @@ const HomePage = () => {
 
       {/* This Week's Plan */}
       {currentWeek && (
-        <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "200ms" }}>
+        <div className="px-5 mb-6">
           <button
             onClick={() => navigate("/schedule")}
             className="w-full p-4 rounded-2xl bg-card card-shadow text-left active:scale-[0.98] transition-all duration-150"
@@ -101,7 +101,7 @@ const HomePage = () => {
 
 
       {/* Quick Actions */}
-      <div className="mb-8 animate-fade-up" style={{ animationDelay: "360ms" }}>
+      <div className="mb-8">
         <SectionHeader title="Quick Actions" />
         <div className="px-5 grid grid-cols-3 gap-3">
           <button onClick={() => navigate("/settings")} className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-card card-shadow active:scale-[0.97] active:neumorphic-active transition-all duration-150">

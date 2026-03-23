@@ -21,7 +21,7 @@ const FlashcardsPage = () => {
   return (
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
-        <h1 className="text-2xl font-bold animate-fade-up">Flashcards</h1>
+        <h1 className="text-2xl font-bold">Flashcards</h1>
         <p className="text-sm text-muted-foreground mt-1">{currentIndex + 1} of {mockQuestions.length}</p>
       </div>
 

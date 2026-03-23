@@ -17,10 +17,10 @@ const SearchPage = () => {
   return (
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
-        <h1 className="text-2xl font-bold animate-fade-up">Search</h1>
+        <h1 className="text-2xl font-bold">Search</h1>
       </div>
 
-      <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "60ms" }}>
+      <div className="px-5 mb-6">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <input
@@ -38,7 +38,7 @@ const SearchPage = () => {
       </div>
 
       {!query && (
-        <div className="px-5 animate-fade-up" style={{ animationDelay: "120ms" }}>
+        <div className="px-5">
           <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Recent Searches</p>
           <div className="flex flex-wrap gap-2">
             {["Croup", "VSD", "Neonatal jaundice", "Kawasaki disease"].map((term) => (
@@ -55,7 +55,7 @@ const SearchPage = () => {
       )}
 
       {query && (
-        <div className="px-5 animate-fade-in">
+        <div className="px-5">
           {filteredSubjects.length > 0 && (
             <div className="mb-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">Subjects</p>

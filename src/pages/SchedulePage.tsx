@@ -9,14 +9,14 @@ const SchedulePage = () => {
   return (
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
-        <h1 className="text-2xl font-bold animate-fade-up">Study Schedule</h1>
-        <p className="text-sm text-muted-foreground mt-1 animate-fade-up" style={{ animationDelay: "60ms" }}>
+        <h1 className="text-2xl font-bold">Study Schedule</h1>
+        <p className="text-sm text-muted-foreground mt-1">
           13-week comprehensive plan
         </p>
       </div>
 
       {/* Overall progress */}
-      <div className="px-5 mb-6 animate-fade-up" style={{ animationDelay: "120ms" }}>
+      <div className="px-5 mb-6">
         <div className="p-4 rounded-2xl bg-card card-shadow">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-card-foreground">Overall Progress</span>
@@ -33,7 +33,7 @@ const SchedulePage = () => {
       </div>
 
       {/* Weeks */}
-      <div className="animate-fade-up" style={{ animationDelay: "180ms" }}>
+      <div className="animate-fade-up">
         <SectionHeader title="Weekly Plan" />
         <div className="px-5 flex flex-col gap-3 mb-8">
           {mockSchedule.weeks.map((w, i) => {
@@ -42,7 +42,7 @@ const SchedulePage = () => {
             return (
               <div
                 key={w.week}
-                className={`p-4 rounded-2xl transition-all duration-150 animate-fade-up
+                className={`p-4 rounded-2xl transition-all duration-150
                   ${isCurrent ? "bg-primary/5 border-2 border-primary/20 card-shadow" : "bg-card card-shadow"}
                 `}
                 style={{ animationDelay: `${200 + i * 50}ms` }}
