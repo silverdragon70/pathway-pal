@@ -17,11 +17,11 @@ const SettingsPage = () => {
         <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-transform">
           <ArrowLeft className="w-5 h-5" />
         </button>
-        <h1 className="text-2xl font-bold animate-fade-up">Settings</h1>
+        <h1 className="text-2xl font-bold">Settings</h1>
       </div>
 
       {/* Appearance */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "80ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Appearance" />
         <div className="px-5">
           <div className="p-4 rounded-2xl bg-card card-shadow">
@@ -48,7 +48,7 @@ const SettingsPage = () => {
       </div>
 
       {/* Font Size */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "140ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Reading" />
         <div className="px-5">
           <div className="p-4 rounded-2xl bg-card card-shadow">
@@ -73,7 +73,7 @@ const SettingsPage = () => {
       </div>
 
       {/* Reminders */}
-      <div className="mb-8 animate-fade-up" style={{ animationDelay: "200ms" }}>
+      <div className="mb-8">
         <SectionHeader title="Notifications" />
         <div className="px-5 flex flex-col gap-3">
           <div className="p-4 rounded-2xl bg-card card-shadow flex items-center justify-between">

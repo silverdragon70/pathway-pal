@@ -23,16 +23,16 @@ const NotificationsPage = () => {
         <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-transform">
           <ArrowLeft className="w-5 h-5" />
         </button>
-        <h1 className="text-2xl font-bold animate-fade-up">Notifications</h1>
+        <h1 className="text-2xl font-bold">Notifications</h1>
       </div>
 
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "80ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Study Reminders" />
         <div className="px-5 flex flex-col gap-3">
           {reminders.map((r, i) => (
             <div
               key={r.id}
-              className={`p-4 rounded-2xl bg-card card-shadow animate-fade-up transition-opacity duration-150 ${!r.enabled ? "opacity-60" : ""}`}
+              className={`p-4 rounded-2xl bg-card card-shadow transition-opacity duration-150 ${!r.enabled ? "opacity-60" : ""}`}
               style={{ animationDelay: `${100 + i * 60}ms` }}
             >
               <div className="flex items-start justify-between mb-2">
@@ -70,7 +70,7 @@ const NotificationsPage = () => {
       </div>
 
       {/* Add reminder button */}
-      <div className="px-5 mb-8 animate-fade-up" style={{ animationDelay: "300ms" }}>
+      <div className="px-5 mb-8">
         <button className="w-full h-12 rounded-2xl border-2 border-dashed border-muted-foreground/20 flex items-center justify-center gap-2 text-sm font-medium text-muted-foreground active:scale-[0.97] transition-all">
           <Plus className="w-4 h-4" /> Add Reminder
         </button>

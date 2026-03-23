@@ -15,13 +15,13 @@ const LibraryPage = () => {
   return (
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
-        <h1 className="text-2xl font-bold animate-fade-up">Library</h1>
+        <h1 className="text-2xl font-bold">Library</h1>
       </div>
 
       {/* Your Collection */}
       <div className="mb-6">
         <SectionHeader title="Your Collection" />
-        <div className="px-5 mb-4 animate-fade-up" style={{ animationDelay: "60ms" }}>
+        <div className="px-5 mb-4">
           <div className="flex gap-1 p-1 bg-secondary rounded-2xl">
             {collectionTabs.map((tab) => (
               <button
@@ -37,7 +37,7 @@ const LibraryPage = () => {
         </div>
 
         {activeTab === "Bookmarks" && (
-          <div className="animate-fade-up px-5 flex flex-col gap-3" style={{ animationDelay: "120ms" }}>
+          <div className="animate-fade-up px-5 flex flex-col gap-3">
             {mockBookmarks.map((bm) => (
               <div key={bm.id} className="flex items-start gap-3 p-4 rounded-2xl bg-card card-shadow">
                 <Bookmark className="w-5 h-5 text-warning mt-0.5 shrink-0" />
@@ -55,7 +55,7 @@ const LibraryPage = () => {
 
 
         {activeTab === "Progress" && (
-          <div className="px-5 animate-fade-up" style={{ animationDelay: "120ms" }}>
+          <div className="px-5">
             <div className="p-4 rounded-2xl bg-card card-shadow">
               <p className="text-sm font-medium text-card-foreground mb-3">Performance Trend</p>
               <div className="flex items-end gap-2 h-32">
@@ -77,7 +77,7 @@ const LibraryPage = () => {
         )}
 
         {activeTab === "History" && (
-          <div className="animate-fade-up px-5 flex flex-col gap-3" style={{ animationDelay: "120ms" }}>
+          <div className="animate-fade-up px-5 flex flex-col gap-3">
             {mockHistory.map((h, i) => (
               <div key={i} className="flex items-center gap-3 p-4 rounded-2xl bg-card card-shadow">
                 <Clock className="w-5 h-5 text-primary shrink-0" />
@@ -93,7 +93,7 @@ const LibraryPage = () => {
       </div>
 
       {/* Study Tools */}
-      <div className="mb-8 animate-fade-up" style={{ animationDelay: "200ms" }}>
+      <div className="mb-8">
         <SectionHeader title="Study Tools" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<Layers className="w-5 h-5 text-primary" />} title="Flashcard Decks" subtitle="Spaced repetition review" onClick={() => navigate("/flashcards")} />

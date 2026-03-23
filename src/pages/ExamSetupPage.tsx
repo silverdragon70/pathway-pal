@@ -20,13 +20,13 @@ const ExamSetupPage = () => {
   return (
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
-        <h1 className="text-2xl font-bold animate-fade-up">Exam Setup</h1>
-        <p className="text-sm text-muted-foreground mt-1 animate-fade-up" style={{ animationDelay: "60ms" }}>
+        <h1 className="text-2xl font-bold">Exam Setup</h1>
+        <p className="text-sm text-muted-foreground mt-1">
           Customize your mock exam
         </p>
       </div>
 
-      <div className="px-5 flex flex-col gap-4 animate-fade-up" style={{ animationDelay: "120ms" }}>
+      <div className="px-5 flex flex-col gap-4">
         {/* Question count */}
         <div className="p-4 rounded-2xl bg-card card-shadow">
           <div className="flex items-center gap-3 mb-3">

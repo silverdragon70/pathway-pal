@@ -24,15 +24,15 @@ const ChapterPage = () => {
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div className="flex-1 min-w-0">
-            <h1 className="text-lg font-bold animate-fade-up line-clamp-1" style={{ color: book.color }}>{book.title}</h1>
-            <p className="text-xs text-muted-foreground mt-0.5 animate-fade-up" style={{ animationDelay: "60ms" }}>
+            <h1 className="text-lg font-bold line-clamp-1" style={{ color: book.color }}>{book.title}</h1>
+            <p className="text-xs text-muted-foreground mt-0.5">
               {book.author} · {book.edition}
             </p>
           </div>
         </div>
 
         {/* Stats row */}
-        <div className="flex gap-3 animate-fade-up" style={{ animationDelay: "100ms" }}>
+        <div className="flex gap-3">
           <div className="flex-1 p-3 rounded-2xl bg-card card-shadow flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-primary" />
             <div>
@@ -65,7 +65,7 @@ const ChapterPage = () => {
             <button
               key={ch.id}
               onClick={() => navigate("/mcq")}
-              className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card card-shadow text-left active:scale-[0.98] active:neumorphic-active transition-all duration-150 animate-fade-up"
+              className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card card-shadow text-left active:scale-[0.98] active:neumorphic-active transition-all duration-150"
               style={{ animationDelay: `${160 + i * 50}ms` }}
             >
               <span className="text-2xl w-10 h-10 flex items-center justify-center">📖</span>

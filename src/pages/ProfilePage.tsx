@@ -16,7 +16,7 @@ const ProfilePage = () => {
     <AppLayout>
       <div className="px-5 pt-6 pb-4">
         {/* Avatar & Info */}
-        <div className="flex items-center gap-4 animate-fade-up">
+        <div className="flex items-center gap-4">
           <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-primary-foreground text-xl font-bold font-serif">
             {mockUser.avatar}
           </div>
@@ -33,7 +33,7 @@ const ProfilePage = () => {
 
 
       {/* Account */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "140ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Account" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<User className="w-5 h-5 text-primary" />} title="Profile Details" subtitle="Name, email, photo" onClick={() => navigate("/settings")} />
@@ -43,7 +43,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Study Settings */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "200ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Study Settings" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<CalendarDays className="w-5 h-5 text-primary" />} title="Study Schedule" subtitle="Weekly plan & targets" onClick={() => navigate("/schedule")} />
@@ -54,7 +54,7 @@ const ProfilePage = () => {
       </div>
 
       {/* Appearance */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "260ms" }}>
+      <div className="mb-6">
         <SectionHeader title="Appearance" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<Palette className="w-5 h-5 text-success" />} title="Theme" subtitle="System / Light / Dark" onClick={() => navigate("/settings")} />
@@ -64,7 +64,7 @@ const ProfilePage = () => {
       </div>
 
       {/* More */}
-      <div className="mb-6 animate-fade-up" style={{ animationDelay: "320ms" }}>
+      <div className="mb-6">
         <SectionHeader title="More" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<Info className="w-5 h-5 text-muted-foreground" />} title="About" subtitle="App version & credits" onClick={() => {}} />
@@ -73,7 +73,7 @@ const ProfilePage = () => {
         </div>
       </div>
 
-      <div className="px-5 mb-8 animate-fade-up" style={{ animationDelay: "380ms" }}>
+      <div className="px-5 mb-8">
         <button className="w-full flex items-center justify-center gap-2 py-3 text-sm font-medium text-destructive active:scale-[0.97] transition-transform">
           <LogOut className="w-4 h-4" /> Sign Out
         </button>
