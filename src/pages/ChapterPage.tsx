@@ -77,8 +77,8 @@ const ChapterPage = () => {
                   <p className="font-medium text-sm text-card-foreground">{ch.name}</p>
                   {completion && (
                     <MedalIcon
-                      className={`w-4 h-4 ${getMedalColorClass(completion.medalLevel)}`}
-                      style={{ display: 'inline-block' }}
+                      className="w-4 h-4"
+                      style={{ display: 'inline-block', color: '#FFD700' }}
                     />
                   )}
                 </div>
