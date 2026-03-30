@@ -2,7 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { mockBooks } from "@/data/mockData";
 import { ArrowLeft, BookOpen, HelpCircle, BarChart3, ChevronRight } from "lucide-react";
-import { getChapterCompletion, getMedalIcon, getMedalColorClass } from "@/services/completionService";
+import { getChapterCompletion, getMedalColorClass } from "@/services/completionService";
+import { MedalIcon } from "@/components/icons/MedalIcon";
 
 const ChapterPage = () => {
   const navigate = useNavigate();
