@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { mockBooks } from "@/data/mockData";
 import { ArrowLeft, BookOpen, HelpCircle, BarChart3, ChevronRight } from "lucide-react";
+import { getChapterCompletion, getMedalIcon, getMedalColorClass } from "@/services/completionService";
 
 const ChapterPage = () => {
   const navigate = useNavigate();
@@ -59,28 +60,39 @@ const ChapterPage = () => {
 
       {/* Chapters list */}
       <div className="px-5 flex flex-col gap-3 mb-8">
-        {book.chapterList.map((ch, i) => {
-          const progress = ch.completed ? 100 : Math.floor(Math.random() * 60);
+        {book.chapterList.map((ch) => {
+          const chProgress = ch.completed ? 100 : Math.floor(Math.random() * 60);
+          const completion = getChapterCompletion(book.id, ch.id);
+
           return (
             <button
               key={ch.id}
               onClick={() => navigate("/mcq")}
               className="w-full flex items-center gap-3 p-4 rounded-2xl bg-card card-shadow text-left active:scale-[0.98] active:neumorphic-active transition-all duration-150"
-              style={{ animationDelay: `${160 + i * 50}ms` }}
             >
               <span className="text-2xl w-10 h-10 flex items-center justify-center">📖</span>
               <div className="flex-1 min-w-0">
-                <p className="font-medium text-sm text-card-foreground">{ch.name}</p>
+                <div className="flex items-center gap-1.5">
+                  <p className="font-medium text-sm text-card-foreground">{ch.name}</p>
+                  {completion && (
+                    <span
+                      className={`text-sm ${getMedalColorClass(completion.medalLevel)}`}
+                      title={`Completed ${completion.studyCount} time(s)`}
+                    >
+                      {getMedalIcon(completion.medalLevel)}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-muted-foreground mt-0.5">{ch.questions} questions</p>
                 <div className="mt-2 h-1.5 bg-secondary rounded-full overflow-hidden">
                   <div
                     className="h-full bg-primary rounded-full transition-all duration-500"
-                    style={{ width: `${progress}%` }}
+                    style={{ width: `${chProgress}%` }}
                   />
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1 shrink-0">
-                <span className="text-xs font-semibold text-primary">{progress}%</span>
+                <span className="text-xs font-semibold text-primary">{chProgress}%</span>
                 <ChevronRight className="w-4 h-4 opacity-30" />
               </div>
             </button>
