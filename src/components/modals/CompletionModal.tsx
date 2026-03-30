@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
 import { getMedalForCount } from "@/services/completionService";
+import { MedalIcon } from "@/components/icons/MedalIcon";
 import { X, ChevronRight, RotateCcw, Share2, Home } from "lucide-react";
 
 interface CompletionModalProps {
