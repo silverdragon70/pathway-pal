@@ -2,7 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { mockBooks } from "@/data/mockData";
 import { ArrowLeft, BookOpen, HelpCircle, BarChart3, ChevronRight } from "lucide-react";
-import { getChapterCompletion, getMedalIcon, getMedalColorClass } from "@/services/completionService";
+import { getChapterCompletion, getMedalColorClass } from "@/services/completionService";
+import { MedalIcon } from "@/components/icons/MedalIcon";
 
 const ChapterPage = () => {
   const navigate = useNavigate();
@@ -75,12 +76,10 @@ const ChapterPage = () => {
                 <div className="flex items-center gap-1.5">
                   <p className="font-medium text-sm text-card-foreground">{ch.name}</p>
                   {completion && (
-                    <span
-                      className={`text-sm ${getMedalColorClass(completion.medalLevel)}`}
-                      title={`Completed ${completion.studyCount} time(s)`}
-                    >
-                      {getMedalIcon(completion.medalLevel)}
-                    </span>
+                    <MedalIcon
+                      className={`w-4 h-4 ${getMedalColorClass(completion.medalLevel)}`}
+                      style={{ display: 'inline-block' }}
+                    />
                   )}
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">{ch.questions} questions</p>

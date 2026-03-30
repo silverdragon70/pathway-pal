@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
 import { getMedalForCount } from "@/services/completionService";
+import { MedalIcon } from "@/components/icons/MedalIcon";
 import { X, ChevronRight, RotateCcw, Share2, Home } from "lucide-react";
 
 interface CompletionModalProps {
@@ -88,7 +89,7 @@ export const CompletionModal = ({
 
         {/* Header */}
         <div className="pt-8 pb-4 px-6 text-center">
-          <div className="text-5xl mb-3">{medal.icon}</div>
+          <MedalIcon className="w-12 h-12 mx-auto mb-3" style={{ color: medal.color }} />
           <h2 className="text-xl font-bold text-card-foreground mb-1">Chapter Complete!</h2>
           <p className="text-sm text-muted-foreground line-clamp-1">{chapterTitle}</p>
         </div>
