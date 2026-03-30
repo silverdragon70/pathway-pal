@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { mockQuestions } from "@/data/mockData";
 import { ArrowLeft, Bookmark, ChevronLeft, ChevronRight, X, CheckCircle2, XCircle, Lightbulb, Eye, EyeOff } from "lucide-react";
+import { CompletionModal } from "@/components/modals/CompletionModal";
+import { incrementCompletion } from "@/services/completionService";
 
 type QuizMode = "study" | "review" | "test";
 
@@ -13,17 +15,32 @@ const MCQPage = () => {
   const [bookmarked, setBookmarked] = useState(false);
   const [mode, setMode] = useState<QuizMode>("study");
   const [showHint, setShowHint] = useState(false);
-  // Review mode state
   const [reviewRevealed, setReviewRevealed] = useState(false);
+
+  // Completion tracking
+  const [answeredCorrectly, setAnsweredCorrectly] = useState<Set<number>>(new Set());
+  const startTime = useRef(Date.now());
+  const [showCompletionModal, setShowCompletionModal] = useState(false);
+  const [completionData, setCompletionData] = useState<{
+    studyCount: number;
+    medalLevel: string;
+  } | null>(null);
 
   const question = mockQuestions[currentIndex];
   const isCorrect = selectedOption === question.correctIndex;
   const progress = ((currentIndex + 1) / mockQuestions.length) * 100;
 
+  // Mock bookId/chapterId — in real app these come from route params
+  const bookId = "1";
+  const chapterId = "1-1";
+
   const handleSelect = (index: number) => {
     if (mode === "review") return;
     if (selectedOption !== null) return;
     setSelectedOption(index);
+    if (index === question.correctIndex) {
+      setAnsweredCorrectly((prev) => new Set(prev).add(currentIndex));
+    }
     if (mode === "study") setShowExplanation(true);
   };
 
@@ -31,7 +48,20 @@ const MCQPage = () => {
     if (currentIndex < mockQuestions.length - 1) {
       setCurrentIndex((p) => p + 1);
       resetState();
+    } else {
+      // Last question — trigger completion
+      handleChapterComplete();
     }
+  };
+
+  const handleChapterComplete = () => {
+    const timeSpent = (Date.now() - startTime.current) / 1000;
+    const result = incrementCompletion(bookId, chapterId);
+    setCompletionData({
+      studyCount: result.studyCount,
+      medalLevel: result.medalLevel,
+    });
+    setShowCompletionModal(true);
   };
 
   const handlePrev = () => {
@@ -49,6 +79,26 @@ const MCQPage = () => {
     setReviewRevealed(false);
   };
 
+  const handleRetake = () => {
+    setShowCompletionModal(false);
+    setCurrentIndex(0);
+    setAnsweredCorrectly(new Set());
+    startTime.current = Date.now();
+    resetState();
+  };
+
+  const handleShare = async () => {
+    const accuracy = Math.round((answeredCorrectly.size / mockQuestions.length) * 100);
+    const text = `I just completed a chapter on CriticalQ with ${accuracy}% accuracy! 🏅`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ text });
+      } catch {
+        // User cancelled
+      }
+    }
+  };
+
   const getOptionStyle = (index: number) => {
     if (mode === "review") return "bg-card card-shadow border-2 border-transparent";
     if (mode === "test") {
@@ -56,7 +106,6 @@ const MCQPage = () => {
       if (index === selectedOption) return "bg-primary/10 border-2 border-primary";
       return "bg-card border-2 border-transparent opacity-50";
     }
-    // study mode
     if (selectedOption === null) return "bg-card card-shadow border-2 border-transparent";
     if (index === question.correctIndex) return "bg-success/5 border-2 border-success";
     if (index === selectedOption && !isCorrect) return "bg-destructive/5 border-2 border-destructive animate-shake";
@@ -76,8 +125,6 @@ const MCQPage = () => {
         <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-transform">
           <ArrowLeft className="w-5 h-5 text-foreground" />
         </button>
-
-        {/* Mode selector */}
         <div className="flex gap-1 p-1 bg-secondary rounded-xl">
           {(["study", "review", "test"] as QuizMode[]).map((m) => (
             <button
@@ -90,7 +137,6 @@ const MCQPage = () => {
             </button>
           ))}
         </div>
-
         <button onClick={() => navigate(-1)} className="w-10 h-10 rounded-xl bg-card card-shadow flex items-center justify-center active:scale-[0.95] transition-transform">
           <X className="w-5 h-5 text-foreground" />
         </button>
@@ -114,7 +160,6 @@ const MCQPage = () => {
           <p className="question-text text-base leading-relaxed">{question.text}</p>
         </div>
 
-        {/* Study / Test: normal options */}
         {mode !== "review" && (
           <div className="flex flex-col gap-3 mb-6">
             {question.options.map((option, i) => (
@@ -144,7 +189,6 @@ const MCQPage = () => {
           </div>
         )}
 
-        {/* Review mode: Known / Unknown */}
         {mode === "review" && (
           <div className="mb-6">
             {!reviewRevealed ? (
@@ -156,7 +200,7 @@ const MCQPage = () => {
                   <EyeOff className="w-4 h-4" /> Unknown
                 </button>
                 <button
-                  onClick={() => { setReviewRevealed(true); }}
+                  onClick={() => setReviewRevealed(true)}
                   className="flex-1 h-14 rounded-2xl bg-success/10 text-success font-medium text-sm active:scale-[0.97] transition-all flex items-center justify-center gap-2"
                 >
                   <Eye className="w-4 h-4" /> Known
@@ -172,7 +216,6 @@ const MCQPage = () => {
           </div>
         )}
 
-        {/* Explanation (study mode) */}
         {mode === "study" && showExplanation && (
           <div className={`p-4 rounded-2xl ${isCorrect ? "bg-success/5 border border-success/20" : "bg-destructive/5 border border-destructive/20"}`}>
             <div className="flex items-center gap-2 mb-2">
@@ -185,7 +228,6 @@ const MCQPage = () => {
           </div>
         )}
 
-        {/* Hint */}
         {showHint && mode === "study" && selectedOption === null && (
           <div className="p-3 rounded-2xl bg-warning/5 border border-warning/10 mt-4">
             <div className="flex items-center gap-2 mb-1">
@@ -237,13 +279,33 @@ const MCQPage = () => {
 
           <button
             onClick={handleNext}
-            disabled={currentIndex === mockQuestions.length - 1}
             className="w-11 h-11 rounded-xl bg-primary text-primary-foreground flex items-center justify-center disabled:opacity-30 active:scale-[0.95] transition-all"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
       </div>
+
+      {/* Completion Modal */}
+      {completionData && (
+        <CompletionModal
+          isOpen={showCompletionModal}
+          onClose={() => setShowCompletionModal(false)}
+          chapterTitle="Growth & Development"
+          totalQuestions={mockQuestions.length}
+          correctCount={answeredCorrectly.size}
+          timeSpent={(Date.now() - startTime.current) / 1000}
+          studyCount={completionData.studyCount}
+          medalLevel={completionData.medalLevel}
+          onNextChapter={() => {
+            setShowCompletionModal(false);
+            navigate("/books/1");
+          }}
+          onRetake={handleRetake}
+          onShare={handleShare}
+          onHome={() => navigate("/")}
+        />
+      )}
     </div>
   );
 };
