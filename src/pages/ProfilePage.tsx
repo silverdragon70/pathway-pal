@@ -6,7 +6,8 @@ import { StatCard } from "@/components/cards/StatCard";
 import { mockUser } from "@/data/mockData";
 import {
   Settings, BookOpen, Award, TrendingUp, LogOut, Bell, Palette, User,
-  Shield, Cloud, CalendarDays, Type, Vibrate, Info, FileText, Lock, RefreshCw
+  Shield, Cloud, CalendarDays, Type, Vibrate, Info, FileText, Lock, RefreshCw,
+  BarChart3
 } from "lucide-react";
 
 const ProfilePage = () => {
