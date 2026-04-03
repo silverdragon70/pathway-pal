@@ -12,9 +12,9 @@ import {
 const statCards = [
   { icon: "📝", value: "1,245", label: "Total Questions", desc: "All questions answered across all chapters" },
   { icon: "⏱️", value: "24h 32m", label: "Total Time", desc: "Total study time (MCQ + Flashcards)" },
-  { icon: "🎯", value: "78%", label: "Overall Accuracy", desc: "Correct answers ÷ Total answers × 100" },
-  { icon: "✅", value: "15", label: "Chapters Completed", desc: "Chapters with 100% of questions answered" },
   { icon: "🏅", value: "8", label: "Mastered", desc: "Chapters with highest medal (3+ completions)" },
+  { icon: "✅", value: "15", label: "Chapters Completed", desc: "Chapters with 100% of questions answered" },
+  { icon: "🎯", value: "78%", label: "Overall Accuracy", desc: "Correct answers ÷ Total answers × 100" },
   { icon: "🏆", value: "48", label: "Sessions", desc: "Times you opened MCQ or Flashcards" },
 ];
 
