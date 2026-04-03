@@ -38,6 +38,7 @@ const ProfilePage = () => {
         <SectionHeader title="Account" />
         <div className="px-5 flex flex-col gap-3">
           <ActionCard icon={<User className="w-5 h-5 text-primary" />} title="Profile Details" subtitle="Name, email, photo" onClick={() => navigate("/settings")} />
+          <ActionCard icon={<BarChart3 className="w-5 h-5 text-primary" />} title="Reports" subtitle="Study stats & progress" onClick={() => navigate("/reports")} />
           <ActionCard icon={<RefreshCw className="w-5 h-5 text-success" />} title="Backup & Restore" subtitle="Save your progress locally" onClick={() => {}} />
           <ActionCard icon={<Cloud className="w-5 h-5 text-primary" />} title="Update Data" subtitle="Check for new data" onClick={() => {}} />
         </div>
