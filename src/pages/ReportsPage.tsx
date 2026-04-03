@@ -139,11 +139,7 @@ const ReportsPage = () => {
             <BarChart data={dailyActivity}>
               <XAxis dataKey="day" tick={{ fontSize: 10 }} tickLine={false} axisLine={false} />
               <YAxis hide />
-              <Tooltip
-                contentStyle={{ fontSize: 11, borderRadius: 12, border: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}
-                cursor={{ fill: "hsl(var(--secondary))" }}
-              />
-              <Bar dataKey="questions" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="questions" fill="hsl(var(--primary))" radius={[6, 6, 0, 0]} label={{ position: "top", fontSize: 10, fill: "hsl(var(--muted-foreground))", fontWeight: 600 }} />
             </BarChart>
           </ResponsiveContainer>
         </div>
