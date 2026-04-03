@@ -12,9 +12,9 @@ import {
 const statCards = [
   { icon: "📝", value: "1,245", label: "Total Questions", desc: "All questions answered across all chapters" },
   { icon: "⏱️", value: "24h 32m", label: "Total Time", desc: "Total study time (MCQ + Flashcards)" },
-  { icon: "🎯", value: "78%", label: "Overall Accuracy", desc: "Correct answers ÷ Total answers × 100" },
-  { icon: "✅", value: "15", label: "Chapters Completed", desc: "Chapters with 100% of questions answered" },
   { icon: "🏅", value: "8", label: "Mastered", desc: "Chapters with highest medal (3+ completions)" },
+  { icon: "✅", value: "15", label: "Chapters Completed", desc: "Chapters with 100% of questions answered" },
+  { icon: "🎯", value: "78%", label: "Overall Accuracy", desc: "Correct answers ÷ Total answers × 100" },
   { icon: "🏆", value: "48", label: "Sessions", desc: "Times you opened MCQ or Flashcards" },
 ];
 
@@ -93,7 +93,7 @@ const ReportsPage = () => {
       {/* Stat Cards */}
       <div className="px-5 grid grid-cols-2 gap-3 mb-6">
         {statCards.map((s) => (
-          <div key={s.label} className="p-4 rounded-2xl bg-card card-shadow flex flex-col gap-1">
+          <div key={s.label} className="p-4 rounded-2xl bg-card card-shadow flex flex-col items-center text-center gap-1">
             <span className="text-2xl">{s.icon}</span>
             <span className="text-xl font-bold font-serif text-card-foreground">{s.value}</span>
             <span className="text-xs font-semibold text-card-foreground">{s.label}</span>
