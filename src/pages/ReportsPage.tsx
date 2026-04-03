@@ -93,7 +93,7 @@ const ReportsPage = () => {
       {/* Stat Cards */}
       <div className="px-5 grid grid-cols-2 gap-3 mb-6">
         {statCards.map((s) => (
-          <div key={s.label} className="p-4 rounded-2xl bg-card card-shadow flex flex-col gap-1">
+          <div key={s.label} className="p-4 rounded-2xl bg-card card-shadow flex flex-col items-center text-center gap-1">
             <span className="text-2xl">{s.icon}</span>
             <span className="text-xl font-bold font-serif text-card-foreground">{s.value}</span>
             <span className="text-xs font-semibold text-card-foreground">{s.label}</span>
