@@ -217,7 +217,7 @@ const ReportsPage = () => {
         <SectionTitle>⚠️ Chapters Needing Review</SectionTitle>
         <div className="space-y-2">
           {worstChapters.map((ch) => {
-            const barColor = ch.percent < 30 ? "bg-destructive" : "bg-warning";
+            const barColor = ch.percent < 30 ? "hsl(var(--destructive))" : "hsl(var(--warning))";
             const textColor = ch.percent < 30 ? "text-destructive" : "text-warning";
             return (
               <button
@@ -233,7 +233,7 @@ const ReportsPage = () => {
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
                     <div className="flex-1">
-                      <Progress value={ch.percent} className={`h-1.5 [&>div]:${barColor}`} />
+                      <Progress value={ch.percent} className="h-1.5" style={{ ["--progress-indicator" as string]: barColor }} />
                     </div>
                     <span className="text-[10px] text-muted-foreground">{ch.correct}/{ch.total}</span>
                   </div>
